@@ -20,23 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   // 페이지 로드시 기존 Memo 가져오기(GET)
-  const getExistingMemos = async () => {
-    try {
-      const response = await fetch('http://localhost:5001/todo', { method: 'GET' });
-      const memoList = await response.json();
-      console.log('메모리스트가 비었을 때 정보', memoList);
-
-      if (memoList.allTodos.length === 0) {
-        alert('메모가 없습니다! 메모를 생성하세요.');
-        return;
-      }
-
-      console.log('서버 응답:', memoList);
-      memoList.allTodos.forEach((todoData) => createMemo(todoData, true));
-    } catch (error) {
-      console.error('메모를 불러오는 중 오류 발생:', error);
-    }
-  };
+  const getExistingMemos = async () => {};
 
   // 메모 가져오기 함수 실행
   getExistingMemos().then(updateTodoNumber);
@@ -101,127 +85,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // 개별 삭제 버튼 이벤트 (DELETE using ID)
-    memo.querySelector('.deleteButton').addEventListener('click', async (event) => {
-      event.preventDefault();
-      if (!confirm('해당 메모를 정말로 삭제하시겠습니까? 삭제 이후 복구할 수 없습니다.')) return;
-
-      try {
-        const response = await fetch(`http://localhost:5001/todo/${memoId}`, { method: 'DELETE' });
-        if (!response.ok) throw new Error(`서버 오류: ${response.status} ${response.statusText}`);
-
-        memo.remove();
-
-        const result = response.json();
-        console.log('서버 응답: ', result);
-        alert('해당 메모를 삭제했습니다.');
-
-        updateTodoNumber();
-      } catch (error) {
-        console.error('삭제 요청 실패:', error);
-        alert('삭제 중 오류가 발생했습니다.');
-      }
-    });
+    memo.querySelector('.deleteButton').addEventListener('click', async (event) => {});
 
     // 완료 체크 이벤트 (PATCH using ID)
-    memo.querySelector('.completeTodo').addEventListener('change', async (event) => {
-      if (memoId === '') {
-        alert('먼저 메모를 생성해주세요!');
-        event.target.checked = false;
-        return;
-      }
-      if (!confirm('정말로 완료하시겠습니까? 이후 내용을 수정할 수 없습니다.')) {
-        event.target.checked = false;
-        return;
-      }
-
-      try {
-        const response = await fetch(`http://localhost:5001/todo/${memoId}`, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ isCompleted: true }),
-        });
-
-        if (!response.ok) throw new Error(`서버 오류: ${response.status} ${response.statusText}`);
-
-        const result = response.json();
-        console.log('서버 응답: ', result);
-        alert('할일 완료!');
-        event.target.disabled = true;
-        memo.querySelector('.memo_category_selector').disabled = true;
-        memo.querySelector('.memo_priority_selector').disabled = true;
-        memo.querySelector('.memo_record').disabled = true;
-        memo.querySelector('.dueDate').disabled = true;
-        memo.querySelector('.submitButton').style.display = 'none';
-        memo.querySelector('.modifyButton').style.display = 'none';
-
-        updateTodoNumber();
-      } catch (error) {
-        console.error('완료 요청 실패:', error);
-        alert('완료 중 오류가 발생했습니다.');
-      }
-    });
+    memo.querySelector('.completeTodo').addEventListener('change', async (event) => {});
 
     // 수정 버튼 이벤트 (PATCH using ID)
-    memo.querySelector('.modifyButton').addEventListener('click', async (event) => {
-      event.preventDefault();
-      if (!confirm('정말로 수정하시겠습니까?')) return;
-
-      try {
-        const formData = new FormData(memo);
-        const data = Object.fromEntries(formData);
-        data.completed = memo.querySelector('.completeTodo').checked;
-
-        const response = await fetch(`http://localhost:5001/todo/${memoId}`, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-
-        if (!response.ok) throw new Error(`서버 오류: ${response.status} ${response.statusText}`);
-        const result = await response.json();
-        console.log('서버 응답: ', result);
-        alert('수정이 완료됐습니다.');
-      } catch (error) {
-        console.error('수정 요청 실패:', error);
-        alert('수정 중 오류가 발생했습니다.');
-      }
-    });
+    memo.querySelector('.modifyButton').addEventListener('click', async (event) => {});
 
     // 전송 버튼 이벤트 (POST)
-    memo.querySelector('.submitButton').addEventListener('click', async (event) => {
-      event.preventDefault();
-      if (!confirm('메모를 생성하시겠습니까?')) return;
-
-      try {
-        const formData = new FormData(memo);
-        const data = Object.fromEntries(formData);
-        data.completed = memo.querySelector('.completeTodo').checked; // 처음 생성한 chekcbox는 undefined가 들어갈 수 있으므로, 한번 더 할당
-
-        const response = await fetch('http://localhost:5001/todo', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-
-        if (!response.ok) throw new Error(`서버 오류: ${response.status} ${response.statusText}`);
-
-        const result = await response.json();
-        memoId = result.todo._id;
-
-        // 버튼 변경
-        memo.querySelector('.submitButton').style.display = 'none';
-        memo.querySelector('.deleteButton').style.display = 'block';
-        memo.querySelector('.modifyButton').style.display = 'block';
-
-        console.log('서버응답: ', result);
-        alert('생성이 완료됐습니다.');
-
-        updateTodoNumber();
-      } catch (error) {
-        console.error('생성 요청 실패:', error);
-        alert('생성 중 오류가 발생했습니다.');
-      }
-    });
+    memo.querySelector('.submitButton').addEventListener('click', async (event) => {});
 
     // `main` 컨테이너에 추가
     main.appendChild(memo);
