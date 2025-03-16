@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 조작 실습</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      .box {
+        display: inline-block;
+        padding: 20px;
+        background-color: lightgray;
+        border-radius: 10px;
+        margin: 20px;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 15px;
+        cursor: pointer;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">DOM 조작 실습</h1>
+    <p id="text">이 문장은 버튼을 누르면 변경됩니다.</p>
+
+    <button id="changeTextBtn">문장 변경</button>
+    <button id="changeColorBtn">배경색 변경</button>
+    <button id="addElementBtn">새로운 요소 추가</button>
+    <button id="removeElementBtn">요소 삭제</button>
+
+    <div id="newElementContainer"></div>
+
+    <hr />
+
+    <label for="userInput">입력값:</label>
+    <input type="text" id="userInput" placeholder="여기에 입력하세요" />
+    <button id="showInputBtn">입력값 표시</button>
+    <p id="displayInput"></p>
+
+    <script>
+      // 1️⃣ 문장 변경
+      document.getElementById('changeTextBtn').addEventListener('click', () => {
+        document.getElementById('text').innerText = '문장이 변경되었습니다!';
+      });
+
+      // 2️⃣ 배경색 변경
+      document.getElementById('changeColorBtn').addEventListener('click', () => {
+        document.body.style.backgroundColor =
+          document.body.style.backgroundColor === 'lightblue' ? 'white' : 'lightblue';
+      });
+
+      // 3️⃣ 새로운 요소 추가
+      document.getElementById('addElementBtn').addEventListener('click', () => {
+        const newElement = document.createElement('div');
+        newElement.innerText = '추가된 요소!';
+        newElement.classList.add('box');
+        newElement.setAttribute('id', 'newBox');
+        document.getElementById('newElementContainer').appendChild(newElement);
+      });
+
+      // 4️⃣ 요소 삭제
+      document.getElementById('removeElementBtn').addEventListener('click', () => {
+        const elementToRemove = document.getElementById('newBox');
+        if (elementToRemove) {
+          elementToRemove.remove();
+        } else {
+          alert('삭제할 요소가 없습니다!');
+        }
+      });
+
+      // 5️⃣ 입력값 표시
+      document.getElementById('showInputBtn').addEventListener('click', () => {
+        const inputText = document.getElementById('userInput').value;
+        document.getElementById('displayInput').innerText = `입력한 값: ${inputText}`;
+      });
+    </script>
+  </body>
+</html>

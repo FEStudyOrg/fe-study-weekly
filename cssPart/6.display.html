@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        color: white;
+        margin: 5px;
+      }
+
+      .block {
+        display: block;
+        background-color: red;
+      }
+
+      .inline {
+        display: inline;
+        background-color: blue;
+      }
+
+      .inline-block {
+        display: inline-block;
+        background-color: yellow;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+      }
+
+      .none {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- block -->
+    <div class="block">block1</div>
+    <div class="block">block2</div>
+    <div class="block">block3</div>
+    <hr />
+    <!-- inline -->
+    <div class="inline">inline1</div>
+    <div class="inline">inline2</div>
+    <div class="inline">inline3</div>
+    <hr />
+    <!-- inline-block -->
+    <span class="inline-block">i-b1</span>
+    <span class="inline-block">i-b2</span>
+    <span class="inline-block">i-b3</span>
+    <hr />
+    <!-- display: none -->
+    <div class="none">none</div>
+  </body>
+</html>

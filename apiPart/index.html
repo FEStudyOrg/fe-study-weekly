@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./index.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/bb85b5ed8a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="shortcut icon" href="../assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <title>ToDo</title>
+  </head>
+  <body>
+    <div id="page">
+      <main id="main"></main>
+      <header id="header">
+        <div class="header_desc_container">
+          <img class="site_logo" src="../assets/favicon.png" alt="logo" />
+          <h2 class="site_title">ToDo</h2>
+          <p class="rest_work">남은 ToDo:</p>
+          <p class="rest_work_count">0</p>
+        </div>
+        <nav class="todo_categories_container">
+          <ul class="todo_categories">
+            <li class="todo_category">
+              <button class="todo_all"><h1 class="todo_all_text">ALL</h1></button>
+            </li>
+            <li class="todo_category">
+              <button class="todo_category_study"><i class="fa-solid fa-book"></i></button>
+            </li>
+            <li class="todo_category">
+              <button class="todo_category_exercise"><i class="fa-solid fa-dumbbell"></i></button>
+            </li>
+            <li class="todo_category">
+              <button class="todo_category_chore"><i class="fa-solid fa-face-smile"></i></button>
+            </li>
+          </ul>
+        </nav>
+        <nav class="todo_controller_container">
+          <ul class="todo_controllers">
+            <li class="todo_controller">
+              <button class="todo_addButton"><i class="fa-solid fa-plus"></i></button>
+            </li>
+            <li class="todo_controller">
+              <button class="todo_allDeleteButton"><i class="fa-solid fa-eraser"></i></button>
+            </li>
+            <li class="todo_controller">
+              <button class="todo_sortByTime_asc"><i class="fa-solid fa-sort-up"></i></button>
+            </li>
+            <li class="todo_controller">
+              <button class="todo_sortByTime_desc"><i class="fa-solid fa-sort-down"></i></button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  </body>
+</html>

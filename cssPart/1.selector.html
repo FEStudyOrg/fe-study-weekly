@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자</title>
+    <style>
+      /* 전체 선택자 */
+      * {
+        font-size: 2rem;
+      }
+
+      /* 기본 선택자 */
+
+      h1 {
+        color: red;
+      }
+
+      #idSel {
+        color: blue;
+      }
+      .classSel {
+        color: green;
+      }
+
+      button[type^='bu'] {
+        color: blueviolet;
+      }
+
+      /* 그룹 선택자 */
+      .classA,
+      .classB {
+        color: aqua;
+      }
+
+      /* 결합자 */
+      section p {
+        color: blue;
+      }
+      ul > li {
+        color: blanchedalmond;
+      }
+      h1 ~ span {
+        color: brown;
+      }
+      p + span {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>기본선택자</h1>
+    <h1 id="idSel">아이디 선택자</h1>
+    <h1 class="classSel">클래스 선택자1</h1>
+    <h1 class="classSel">클래스 선택자2</h1>
+    <button type="button">속성 선택자</button>
+    <hr />
+    <h1 class="classA">그룹 선택자</h1>
+    <h1 class="classB">그룹 선택자</h1>
+    <hr />
+    <section>
+      <h1>헬스</h1>
+      <p>위키백과, 우리 모두의 백과사전.</p>
+      <p>헬스는 기본적으로 건강을 가리키며 그 외에 다음을 가리킨다.</p>
+      <ul>
+        <li>의료</li>
+        <li>보건</li>
+        <li>체력</li>
+        <li>패션헬스</li>
+        <li>헬스클럽</li>
+        <li>구글헬스:구글이 제공하는 개인 의료 정보 서비스</li>
+      </ul>
+    </section>
+    <section>
+      <h1>형제결합자</h1>
+      <span>one</span>
+      <p>two</p>
+      <span>three</span>
+      <p>four</p>
+      <span>five</span>
+      <p>six</p>
+    </section>
+  </body>
+</html>

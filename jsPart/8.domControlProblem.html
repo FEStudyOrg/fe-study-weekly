@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 조작 연습</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      .box {
+        display: inline-block;
+        padding: 20px;
+        background-color: lightgray;
+        border-radius: 10px;
+        margin: 20px;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 15px;
+        cursor: pointer;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">DOM 조작 연습</h1>
+    <p id="text">이 문장을 변경해보세요!</p>
+
+    <button id="btn1">문장 변경</button>
+    <button id="btn2">색상 변경</button>
+    <button id="btn3">새로운 요소 추가</button>
+    <button id="btn4">추가된 요소 삭제</button>
+
+    <div id="container"></div>
+
+    <hr />
+
+    <label for="inputBox">입력하세요:</label>
+    <input type="text" id="inputBox" placeholder="텍스트 입력" />
+    <button id="btn5">입력값 표시</button>
+    <p id="result"></p>
+
+    <script>
+      // 1️⃣ 버튼 클릭 시 문장 변경
+      document.getElementById('btn1').addEventListener('click', function () {
+        // TODO: id="text"인 요소의 내용을 "문장이 변경되었습니다!"로 바꾸세요.
+      });
+
+      // 2️⃣ 배경색 변경
+      document.getElementById('btn2').addEventListener('click', function () {
+        // TODO: 배경색을 클릭할 때마다 "lightblue" 또는 "white"로 번갈아 변경하세요.
+      });
+
+      // 3️⃣ 새로운 요소 추가
+      document.getElementById('btn3').addEventListener('click', function () {
+        // TODO: id="container" 안에 "새로운 요소!"라는 텍스트가 있는 <div>를 추가하세요.
+      });
+
+      // 4️⃣ 추가된 요소 삭제
+      document.getElementById('btn4').addEventListener('click', function () {
+        // TODO: 추가된 요소를 삭제하세요. 요소가 없으면 "삭제할 요소가 없습니다!" 알림을 띄우세요.
+      });
+
+      // 5️⃣ 입력값 표시
+      document.getElementById('btn5').addEventListener('click', function () {
+        // TODO: 입력한 값을 id="result" 요소에 표시하세요.
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼 이벤트 예제</title>
+    <style>
+      body {
+        text-align: center;
+        padding: 50px;
+        transition: background-color 0.3s ease-in-out;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 버튼은 사용자가 웹사이트와 상호작용을 할 때 주로 사용하는 태그 -->
+    <!-- 역할: 이벤트에 따른 작업처리 ex) API호출, 색상바꾸기 등 -->
+
+    <!-- type(버튼역할지정): button/subimit(default)/reset -->
+
+    <!-- 배경색 변경 버튼 -->
+    <button onclick="changeBackground()">배경 변경</button>
+
+    <!-- 폼 데이터 전송 -->
+    <form id="myForm">
+      <input type="text" name="username" placeholder="이름 입력" required />
+      <input type="email" name="email" placeholder="이메일 입력" required />
+    </form>
+
+    <button type="button" form="myForm" onclick="sendFormData()" formmethod="post">API 전송</button>
+
+    <script>
+      // 배경색 변경 함수
+      function changeBackground() {
+        const colors = [
+          '#ffadad',
+          '#ffd6a5',
+          '#fdffb6',
+          '#caffbf',
+          '#9bf6ff',
+          '#a0c4ff',
+          '#bdb2ff',
+        ];
+        document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      // 폼 데이터 API 전송 함수
+      function sendFormData() {
+        const form = document.getElementById('myForm');
+        const formData = new FormData(form);
+
+        fetch('https://example.com/api/submit', {
+          method: 'POST',
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => alert('전송 성공: ' + JSON.stringify(data)))
+          .catch((error) => alert('오류 발생: ' + error));
+      }
+    </script>
+  </body>
+</html>

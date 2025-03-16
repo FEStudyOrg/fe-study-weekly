@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>테이블 태그</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th {
+        background-color: azure;
+      }
+      td {
+        background-color: antiquewhite;
+      }
+      * {
+        text-align: center;
+        /* 우선순위 개별요소 스타일 > col 그룹 스타일 */
+      }
+      .class {
+        background-color: blue;
+      }
+      .classNum {
+        background-color: red;
+      }
+      .avgTestScore {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        개별 시험 성적
+      </caption>
+      <!-- thead -->
+      <tr>
+        <th>학급</th>
+        <th>학번</th>
+        <th>시험평균</th>
+      </tr>
+      <!-- tbody -->
+      <tr>
+        <td>1</td>
+        <td>5</td>
+        <td>80.1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>6</td>
+        <td>57</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>7</td>
+        <td>98</td>
+      </tr>
+    </table>
+    <hr />
+    <!-- 행 병합: row span -->
+    <table>
+      <caption>
+        개별 시험 성적
+      </caption>
+      <tr>
+        <th>학급</th>
+        <th>학번</th>
+        <th>시험평균</th>
+      </tr>
+      <tr>
+        <td rowspan="3">1</td>
+        <td>5</td>
+        <td>80.1</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>57</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>98</td>
+      </tr>
+    </table>
+    <hr />
+    <!-- 열 병합: col span -->
+    <table>
+      <caption>
+        열 병합
+      </caption>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td colspan="2">B</td>
+      </tr>
+    </table>
+    <table>
+      <hr />
+      <caption>
+        개별 시험 성적
+      </caption>
+      <!-- 콜 그룹: 각 열을 묶어서 열별로 일괄적인 스타일 적용이나 조작이 가능함 -->
+      <colgroup>
+        <col class="class" />
+        <col class="classNum" />
+        <col class="avgTestScore" />
+      </colgroup>
+      <tr>
+        <th>학급</th>
+        <th>학번</th>
+        <th>시험평균</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>5</td>
+        <td>80.1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>6</td>
+        <td>57</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>7</td>
+        <td>98</td>
+      </tr>
+    </table>
+  </body>
+</html>

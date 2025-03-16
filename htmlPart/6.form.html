@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼 태그</title>
+  </head>
+  <body>
+    <!-- 주의: name 속성을 설정하지 않으면 입력값이 서버로 전송되지 않습니다 -->
+    <form action="api 주소" method="post" target="_self" autocomplete="on">
+      <fieldset>
+        <legend>아이디</legend>
+        <label
+          >아이디<input name="userId" type="text" placeholder="아이디를 입력하세요" maxlength="11"
+        /></label>
+      </fieldset>
+      <fieldset>
+        <legend>비밀번호</legend>
+        <label for="user-password">비밀번호</label>
+        <input
+          name="userPassword"
+          type="password"
+          placeholder="비밀번호를 입력하세요"
+          id="user-password"
+        />
+      </fieldset>
+    </form>
+    <hr />
+    <form action="">
+      <fieldset>
+        <legend>상품선택</legend>
+        <p><b>주문할 상품을 선택하세요</b></p>
+        <input type="checkbox" value="apple" checked />사과 <input type="checkbox" value="a_3" />3kg
+        <input type="number" min="0" max="3" value="0" />(최대3개)
+        <input type="checkbox" value="a_5" />5kg
+        <input type="number" min="0" max="3" value="0" />(최대3개)
+      </fieldset>
+    </form>
+    <hr />
+    <form action="">
+      <fieldset>
+        <legend>시간 선택</legend>
+        <input type="date" />
+        <input type="month" />
+        <input type="week" />
+        <input type="time" />
+      </fieldset>
+    </form>
+    <hr />
+    <form action="">
+      <fieldset>
+        <legend>파일첨부</legend>
+        <input type="file" multiple />
+      </fieldset>
+    </form>
+  </body>
+</html>

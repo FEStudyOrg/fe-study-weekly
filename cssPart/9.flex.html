@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Example</title>
+    <style>
+      /* Flex 컨테이너 설정 */
+      .flex_container {
+        display: flex;
+        justify-content: space-around; /* 가로 정렬 */
+        align-items: center; /* 세로 정렬 */
+        flex-wrap: wrap; /* 줄바꿈 허용 */
+        gap: 10px; /* 아이템 간 간격 */
+        background-color: #f0f0f0;
+        padding: 20px;
+        height: 300px;
+        border: 2px solid black;
+      }
+
+      /* Flex 아이템 스타일 */
+      .flex_item {
+        background-color: lightblue;
+        padding: 20px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        border: 1px solid blue;
+        flex-grow: 1; /* 모든 아이템이 균등한 너비를 가짐 */
+      }
+
+      /* 특정 아이템 크기 증가 */
+      .flex_item:nth-child(3) {
+        flex-grow: 2; /* 세 번째 아이템이 2배 크기로 확장됨 */
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flexbox 예제</h1>
+    <div class="flex_container">
+      <div class="flex_item">1</div>
+      <div class="flex_item">2</div>
+      <div class="flex_item">3 (큰 아이템)</div>
+      <div class="flex_item">4</div>
+      <div class="flex_item">5</div>
+      <div class="flex_item">6</div>
+      <div class="flex_item">7</div>
+      <div class="flex_item">8</div>
+      <div class="flex_item">9</div>
+      <div class="flex_item">10</div>
+    </div>
+  </body>
+</html>

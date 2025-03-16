@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inline level VS block level</title>
+    <style>
+      div {
+        background-color: red;
+      }
+      span {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div>hello wolrd</div>
+    <span> hello wolrd </span>
+    <hr />
+    <!-- 블록 레벨: 세로 나열, width, height 적용가능, 레이아웃에 구성에 용이 -->
+    <div style="width: 100px; height: 100px">블록1</div>
+    <div>블록2</div>
+    <div>블록3</div>
+    <hr />
+    <!-- 인라인 레벨: 가로 나열, 컨텐츠 영역만큼 차지 -> width, height 적용불가능 -->
+    <span style="width: 1000px">인라인1</span>
+    <span>인라인2</span>
+    <span>인라인3</span>
+  </body>
+</html>
